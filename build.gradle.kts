@@ -16,6 +16,7 @@ repositories {
 
 dependencies {
     testImplementation(kotlin("test"))
+    implementation("dev.sublab:common-kotlin:1.0.0")
 }
 
 tasks.test {
