@@ -14,9 +14,9 @@
 
 # Sublab's Curve25519 Kotlin library
 
-This is a Kotlin repository which shares common functionality across most of our repositories which solve separate problems in Substrate ecosystem.
+This is a Kotlin repository which implements [curve25519 algorithm](https://en.wikipedia.org/wiki/Curve25519). Used in our [sr25519 encryption algorithm](https://github.com/sublabdev/sr25519-kotlin) implementation.
 
-So this is a good place to store new types that do not exist in Kotlin environment, but required for Substrate to work, such as Rust-specific types; some syntax sugar to enhance development speed and code readability; and different conversions between multiple types that happens frequently.
+Shouldn't be really modified unless some bugs are found.
 
 ## Sublab
 
