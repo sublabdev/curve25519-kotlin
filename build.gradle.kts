@@ -1,9 +1,10 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.7.21"
-    kotlin("plugin.serialization") version "1.7.21"
+    kotlin("jvm")
+    kotlin("plugin.serialization")
     `maven-publish`
+    id("org.jetbrains.dokka")
 }
 
 group = "dev.sublab"
@@ -14,13 +15,21 @@ repositories {
     mavenCentral()
 }
 
+val commonVersion: String by project
+val dokkaVersion: String by project
+
 dependencies {
     testImplementation(kotlin("test"))
-    implementation("dev.sublab:common-kotlin:1.0.0")
+    dokkaHtmlPlugin("org.jetbrains.dokka:kotlin-as-java-plugin:$dokkaVersion")
+    implementation("dev.sublab:common-kotlin:$commonVersion")
 }
 
 tasks.test {
     useJUnitPlatform()
+}
+
+tasks.dokkaHtml.configure {
+    outputDirectory.set(projectDir.resolve("reference"))
 }
 
 tasks.withType<KotlinCompile> {
